@@ -9,7 +9,7 @@ fun main() {
         val s=Integer.parseInt(JOptionPane.showInputDialog(null,"Segundo: "))
         var num: Int
         val hor: Int
-        var min=0
+        var min: Int
         val seg: Int
 
         //OPERACION HORA A SEGUNDOS
@@ -25,3 +25,4 @@ fun main() {
         JOptionPane.showMessageDialog(null,"${hor.toString()}h $min m $seg g")
     }
 //by Hufolino Valentin @Pulgarcito Valentin
+//hola
