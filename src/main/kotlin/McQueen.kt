@@ -31,6 +31,7 @@ fun burbuja(){
 
             }
     }
+    //Fue de como se hace la burbuja
 
 }
 
