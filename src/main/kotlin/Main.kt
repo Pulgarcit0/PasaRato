@@ -22,4 +22,5 @@ fun main(args: Array<String>) {
         seg = num - (hor * 3600 + min * 60)
         //println(hor.toString() + "h " + min + "m " + seg + "s")
         JOptionPane.showMessageDialog(null,"${hor.toString()}h $min m $seg g")
+        JOptionPane.showMessageDialog(null,"Hola")
     }
