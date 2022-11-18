@@ -2,15 +2,15 @@ import java.util.*
 import javax.swing.JOptionPane
 
 
-fun main(args: Array<String>) {
+fun main() {
         //Aqui se le pide los datos al usuario
-        var h=Integer.parseInt(JOptionPane.showInputDialog(null,"Hora: "))
-        var m=Integer.parseInt(JOptionPane.showInputDialog(null,"Minuto: "))
-        var s=Integer.parseInt(JOptionPane.showInputDialog(null,"Segundo: "))
+        val h=Integer.parseInt(JOptionPane.showInputDialog(null,"Hora: "))
+        val m=Integer.parseInt(JOptionPane.showInputDialog(null,"Minuto: "))
+        val s=Integer.parseInt(JOptionPane.showInputDialog(null,"Segundo: "))
         var num: Int
-        var hor: Int
-        var min: Int
-        var seg: Int
+        val hor: Int
+        var min=0
+        val seg: Int
 
         //OPERACION HORA A SEGUNDOS
         num=h*3600
