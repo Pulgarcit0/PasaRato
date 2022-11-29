@@ -1,11 +1,43 @@
-import java.util.Arrays
+import java.util.*
+
 import javax.swing.JOptionPane
 
 
 
 
+fun main(args: Array<String>) {
+    val metodo = JOptionPane.showInputDialog(
+        null,
+        "SELECCIONE UN METODO DE ORDENAMIENTO",
+        "ORDENAMIENTO",
+        JOptionPane.QUESTION_MESSAGE,
+        null,
+        arrayOf<Any>("QUICSORT", "BURBUJA", "SHELLSORT"),
+        "SELECCIONE"
 
-fun Bubble() {
+    )
+
+    if(metodo=="Amarillo"){
+        val numeros = intArrayOf(1, 9, 23, 4, 55, 100, 1, 1, 23)
+        println("Antes de QS: " + Arrays.toString(numeros))
+        quicksort(numeros, 0, numeros.size - 1)
+        println("Después de QS: " + Arrays.toString(numeros))
+    }else if(metodo=="BURBUJA"){
+        Burbuja()
+    }else if(metodo=="SHELLSORT"){
+        val arr = intArrayOf(23, 12, 1, 8, 34, 54, 2, 3)
+        //println("Array before sorting")
+        JOptionPane.showMessageDialog(null,arr.toString())
+        for( a in arr) print("$a  ")
+        shellsort(arr)
+        println("Array after sorting")
+        for( a in arr) print("$a  ")
+    }
+
+}
+
+//--------------------->ORDENAMIENTO BURBUJA<------------------------------------------------------
+fun Burbuja() {
     val a=JOptionPane.showInputDialog("Ingrese los numero y separador por comas ")
     val listaNumerosTexto=a.split(",".toRegex()).toTypedArray()
     val cantidad=listaNumerosTexto.size
@@ -33,15 +65,7 @@ fun Bubble() {
         println(listaNumeros[i])
     }
 }
-
-fun main(args: Array<String>) {
-
-    val numeros = intArrayOf(1, 9, 23, 4, 55, 100, 1, 1, 23)
-    println("Antes de QS: " + Arrays.toString(numeros))
-    quicksort(numeros, 0, numeros.size - 1)
-    println("Después de QS: " + Arrays.toString(numeros))
-}
-
+//--------------------->ORDENAMIENTO QUICSORT<------------------------------------------------------
 private fun particion(arreglo: IntArray, izquierda: Int, derecha: Int): Int {
     // Elegimos el pivote, es el primero
     var izquierda = izquierda
@@ -94,4 +118,40 @@ private fun quicksort(arreglo: IntArray, izquierda: Int, derecha: Int) {
         quicksort(arreglo, izquierda, indiceParticion)
         quicksort(arreglo, indiceParticion + 1, derecha)
     }
+}
+
+//--------------------->ORDENAMIENTO SHELLSORT<------------------------------------------------------
+fun shellsort(arr: IntArray): Int {
+    val n = arr.size
+
+    // decide the gap, then reduce the gap
+    var gap = n / 2
+    while (gap > 0) {
+        // Do a gapped insertion sort for this gap size.
+        // The first gap elements a[0..gap-1] are already
+        // in gapped order keep adding one more element
+        // until the entire array is gap sorted
+        var i = gap
+        while (i < n) {
+            // add a[i] to the elements that
+            // have been gap sorted save a[i] in temp and make a hole at
+            // position i
+            val temp = arr[i]
+
+            // shift earlier gap-sorted elements up until
+            //the correct location for a[i] is found
+            var j = i
+            while (j >= gap && arr[j - gap] > temp) {
+                arr[j] = arr[j - gap]
+                j -= gap
+            }
+
+            // put temp (the original a[i]) in its correct
+            // location
+            arr[j] = temp
+            i += 1
+        }
+        gap /= 2
+    }
+    return 0
 }

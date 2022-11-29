@@ -36,13 +36,11 @@ fun sort(arr: IntArray): Int {
     }
     return 0
 }
-fun main(args: Array<String>) {
+fun Sort(args: Array<String>) {
     val arr = intArrayOf(23, 12, 1, 8, 34, 54, 2, 3)
-    println("Array before sorting")
+    println("Array before sorting->>ANTES")
     for( a in arr) print("$a  ")
-
     sort(arr)
-
-    println("Array after sorting")
+    println("Array after sorting-->>>DESPUES")
     for( a in arr) print("$a  ")
 }
