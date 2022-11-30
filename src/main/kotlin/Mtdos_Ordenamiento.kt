@@ -17,55 +17,54 @@ fun main(args: Array<String>) {
 
     )
 
-    if(metodo=="Amarillo"){
+    if(metodo=="QUICSORT"){
         val numeros = intArrayOf(1, 9, 23, 4, 55, 100, 1, 1, 23)
         println("Antes de QS: " + Arrays.toString(numeros))
         quicksort(numeros, 0, numeros.size - 1)
         println("Después de QS: " + Arrays.toString(numeros))
-    }else if(metodo=="BURBUJA"){
-        Burbuja()
-    }else if(metodo=="SHELLSORT"){
+    }
+    else if(metodo=="BURBUJA"){
+
+    }
+    else if(metodo=="SHELLSORT"){
         val arr = intArrayOf(23, 12, 1, 8, 34, 54, 2, 3)
+        var sort= intArrayOf()
+        for (a in arr){
+            sort=arr
+        }
         //println("Array before sorting")
-        JOptionPane.showMessageDialog(null,arr.toString())
-        for( a in arr) print("$a  ")
+        //for( a in arr) print("$a  ")
+        JOptionPane.showMessageDialog(null,sort.toTypedArray().asList())
         shellsort(arr)
-        println("Array after sorting")
-        for( a in arr) print("$a  ")
+        //println("Array after sorting")
+        //for( a in arr)
+        JOptionPane.showMessageDialog(null,"ORIGINAL: ${sort.toTypedArray().asList()} ORDENADO ${arr.toTypedArray().asList()}")
     }
 
 }
 
 //--------------------->ORDENAMIENTO BURBUJA<------------------------------------------------------
-fun Burbuja() {
-    val a=JOptionPane.showInputDialog("Ingrese los numero y separador por comas ")
-    val listaNumerosTexto=a.split(",".toRegex()).toTypedArray()
-    val cantidad=listaNumerosTexto.size
-    val listaNumeros=IntArray(cantidad)
-    for (i in (0 until cantidad)){
-        listaNumeros[i]=listaNumerosTexto[i].toInt()
-    }
-    var tem=0
-    for(i in (0 until cantidad-1)){
-        for(j in (0 until cantidad-1)){
-            if(listaNumeros[j]>listaNumeros[j+1]){
-                tem=listaNumeros[j]
-                listaNumeros[j]=listaNumeros[j+1]
-                listaNumeros[j+1]=tem
+   /* fun <E : Comparable<E>> Array<E>.sort() {
+        val len = size
+        for (i in 0 until (len - 1)) {
+            for (j in 0 until (len - i - 1)) {
+                if (this[j].compareTo(this[j + 1]) > 0) {
+                    val temp = this[j]
+                    this[j] = this[j + 1]
+                    this[j + 1] = temp
+                }
             }
         }
     }
-    println("Humano aqui estan tus pinches numero ordenado de forma acendente")
-    for (i in (0 until cantidad)){
-        println(listaNumeros[i])
-    }
 
-    println("Humano aqui estan tus pinches numero ordenado de forma decendente")
-    for (i in (cantidad-1 downTo 0)){
-        println(listaNumeros[i])
-    }
-}
-//--------------------->ORDENAMIENTO QUICSORT<------------------------------------------------------
+    fun burbujasort() {
+        val nums = arrayOf(2, 12, 89, 23, 76, 43, 12)
+        nums.sort()
+        JOptionPane.showMessageDialog(null, "ORGINAL--> ${nums.toList()} \n ORDENADO--> ${Arrays.toString(nums)}")
+
+    }*/
+
+    //--------------------->ORDENAMIENTO QUICSORT<------------------------------------------------------
 private fun particion(arreglo: IntArray, izquierda: Int, derecha: Int): Int {
     // Elegimos el pivote, es el primero
     var izquierda = izquierda
