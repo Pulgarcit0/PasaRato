@@ -1,8 +1,8 @@
 import java.util.*
 
 import javax.swing.JOptionPane
-
-
+import kotlin.concurrent.timer
+import kotlin.system.measureTimeMillis
 
 
 fun main(args: Array<String>) {
@@ -24,27 +24,22 @@ fun main(args: Array<String>) {
         println("Después de QS: " + Arrays.toString(numeros))
     }
     else if(metodo=="BURBUJA"){
-
+        burbujasort()
     }
     else if(metodo=="SHELLSORT"){
-        val arr = intArrayOf(23, 12, 1, 8, 34, 54, 2, 3)
-        var sort= intArrayOf()
-        for (a in arr){
-            sort=arr
+        val arr = intArrayOf(23, 12, 1, 8, 34, 54, 2, 3,23, 12, 1, 8, 34, 54, 2, 3,23, 12, 1, 8, 34, 54, 2, 3,23, 12, 1, 8, 34, 54, 2, 3)
+        var  sort= arrayListOf(arr.toTypedArray().asList())
+       // JOptionPane.showMessageDialog(null,sort)
+        val tiempo= measureTimeMillis{
+            shellsort(arr)
         }
-        //println("Array before sorting")
-        //for( a in arr) print("$a  ")
-        JOptionPane.showMessageDialog(null,sort.toTypedArray().asList())
-        shellsort(arr)
-        //println("Array after sorting")
-        //for( a in arr)
-        JOptionPane.showMessageDialog(null,"ORIGINAL: ${sort.toTypedArray().asList()} ORDENADO ${arr.toTypedArray().asList()}")
+        JOptionPane.showMessageDialog(null,"ORIGINAL: ${sort} \n ORDENADO ${arr.toTypedArray().asList()} \n DEMORA: ${tiempo}")
     }
 
 }
 
 //--------------------->ORDENAMIENTO BURBUJA<------------------------------------------------------
-   /* fun <E : Comparable<E>> Array<E>.sort() {
+    fun <E : Comparable<E>> Array<E>.sort() {
         val len = size
         for (i in 0 until (len - 1)) {
             for (j in 0 until (len - i - 1)) {
@@ -58,11 +53,13 @@ fun main(args: Array<String>) {
     }
 
     fun burbujasort() {
-        val nums = arrayOf(2, 12, 89, 23, 76, 43, 12)
+        val nums = arrayOf(23, 12, 1, 8, 34, 54, 2, 3,23, 12, 1, 8, 34, 54, 2, 3,23, 12, 1, 8, 34, 54, 2, 3,23, 12, 1, 8, 34, 54, 2, 3)
+        val tiempo = measureTimeMillis {
         nums.sort()
-        JOptionPane.showMessageDialog(null, "ORGINAL--> ${nums.toList()} \n ORDENADO--> ${Arrays.toString(nums)}")
+           }
+        JOptionPane.showMessageDialog(null, "ORGINAL--> ${nums.toList()} \n ORDENADO--> ${Arrays.toString(nums)} DEMORA: ${tiempo}")
 
-    }*/
+    }
 
     //--------------------->ORDENAMIENTO QUICSORT<------------------------------------------------------
 private fun particion(arreglo: IntArray, izquierda: Int, derecha: Int): Int {
